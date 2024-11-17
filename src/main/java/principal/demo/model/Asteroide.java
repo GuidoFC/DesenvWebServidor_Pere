@@ -13,7 +13,7 @@ public class Asteroide {
     // Explicacion del ManyToOne
 // https://www.youtube.com/watch?v=XPbBIpK8a9o&ab_channel=pildorasinformaticas
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) // genera el id de forma automatica
+//    @GeneratedValue(strategy = GenerationType.IDENTITY) // genera el id de forma automatica
     private Long id;
     @Column(name = "name")
     private String nombre;

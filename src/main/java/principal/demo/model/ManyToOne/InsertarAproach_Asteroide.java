@@ -17,7 +17,6 @@ public class InsertarAproach_Asteroide {
         Session miSession = myFactory.openSession();
 
 
-
         try {
 
             miSession.beginTransaction();
@@ -30,9 +29,9 @@ public class InsertarAproach_Asteroide {
             Asteroide miAsteroide = miSession.get(Asteroide.class, 252);
 
             // crear Avistamiento
-            Aproach miAproach = new Aproach(approachDate, 1.6f, 14.6f, "Tierra",miAsteroide);
-            Aproach miAproach2 = new Aproach(approachDate2, 16.6f, 14.6f, "Marte",miAsteroide);
-            Aproach miAproach3 = new Aproach(approachDate3, 1655.6f, 14.6f, "Venus",miAsteroide);
+            Aproach miAproach = new Aproach(approachDate, 1.6f, 14.6f, "Tierra", miAsteroide);
+            Aproach miAproach2 = new Aproach(approachDate2, 16.6f, 14.6f, "Marte", miAsteroide);
+            Aproach miAproach3 = new Aproach(approachDate3, 1655.6f, 14.6f, "Venus", miAsteroide);
 
             miAsteroide.agregarAproach(miAproach);
             miAsteroide.agregarAproach(miAproach2);
