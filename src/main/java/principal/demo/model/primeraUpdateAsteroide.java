@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 
-public class SaveAsteroide {
+public class primeraUpdateAsteroide {
     public static void main(String[] args) {
 
 
@@ -14,11 +14,17 @@ public class SaveAsteroide {
         Session miSession = myFactory.openSession();
 
         try {
-            Asteroide asteroide1 = new Asteroide( "MayorPeroNoPeligros", 250.55, 5.26, true);
+            // TODO 1r formna
+
+            Long ClienteID = 252L;
+
             miSession.beginTransaction();
-            miSession.save(asteroide1);
+
+            Asteroide miAsteroide = miSession.get(Asteroide.class, ClienteID);
+
+            miAsteroide.setNombre("ModifcarAsteroide");
             miSession.getTransaction().commit();
-            System.out.println("Insert correctamente");
+            System.out.println("Se ha modificado correctamente correctamente");
 
             miSession.close();
 
