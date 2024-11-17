@@ -1,0 +1,9 @@
+1r. Por que no puedo acceder al phpadmin?
+Es decir, la contraseña no sirve
+
+2. ORM de Jakarta JPA -> Esta bien lo que he hecho de JPA???
+ Para ello he hecho modificaciones en el archivo persistence.xml y pom.xml
+
+ 3. Explicacion de api rest
+ https://www.youtube.com/watch?v=cI0F-9eLn2g&list=PLU8oAlHdN5Blq85GIxtKjIXdfHPksV_Hm&index=108&ab_channel=pildorasinformaticas
+

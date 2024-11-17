@@ -1,0 +1,43 @@
+services:
+  tomee:
+    image: tomee:jre17-webprofile
+    container_name: tomee2
+    ports:
+      - "8083:8080"
+    volumes:
+      - ./target:/usr/local/tomee/webapps
+    environment:
+      #Esto es para windows para que sincronice
+      - WATCHPACK_POLLING=true
+    #  La clave depends_on se utiliza para indicar que el contenedor tomee debe esperar a que el contenedor db (la base de datos MySQL) se inicie antes de empezar.
+    depends_on:
+      - mysqlfinal
+
+  mysqlfinal:
+    image: mysql:8.0
+    container_name: mysql_db2
+    environment:
+      # La contraseña del usuario root de MySQL. Este es el superusuario de la base de datos.
+      MYSQL_ROOT_PASSWORD: root
+      # El nombre de la base de datos que se creará automáticamente cuando se inicie el contenedor.
+      MYSQL_DATABASE: nasa
+      MYSQL_USER: pere2024
+      MYSQL_PASSWORD: peredev
+    ports:
+      - "3302:3306"
+    volumes:
+      - db_data_nasa:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin2
+    environment:
+      PMA_HOST: mysqlfinal
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "8082:80"
+    depends_on:
+      - mysqlfinal
+# El volumen db_data_nasa actúa como un almacenamiento persistente, asegurando que la información de la base de datos se mantenga a salvo fuera del ciclo de vida del contenedor.
+volumes:
+  db_data_nasa:
