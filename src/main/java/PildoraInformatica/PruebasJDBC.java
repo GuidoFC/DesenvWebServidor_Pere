@@ -1,6 +1,6 @@
 package PildoraInformatica;
 
-import JOANGALMES.MySQLConnnection;
+import JOANGALMES.config.MySQLConnnection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

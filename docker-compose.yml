@@ -38,6 +38,24 @@ services:
       - "8082:80"
     depends_on:
       - mysqlfinal
+
+  nodenasa:
+    build:
+      context: .
+      dockerfile: src\main\java\Dockerfile
+    tty: true
+    stdin_open: true
+    volumes:
+      # primero creamos el contenedor asi
+      - .\src\main\webapp\vite:/app
+#      - .\vite:/app
+      # después de ejecutar el comando npm run dev volvemos a levantar el contendor usando este volumnen
+      #- .\vite\vite-project:/app
+
+    # para Vite es importante poner un puerto
+    ports:
+      - "2526:8888"
+      - "8786:5173"
 # El volumen db_data_nasa actúa como un almacenamiento persistente, asegurando que la información de la base de datos se mantenga a salvo fuera del ciclo de vida del contenedor.
 volumes:
   db_data_nasa:

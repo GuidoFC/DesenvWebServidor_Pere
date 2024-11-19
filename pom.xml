@@ -71,6 +71,13 @@
             <version>20210307</version> <!-- Puedes usar la versión más reciente -->
         </dependency>
 
+<!--        Joan Lombock-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.30</version> <!-- Verifica si hay una versión más reciente -->
+            <scope>provided</scope>
+        </dependency>
 
     </dependencies>
 

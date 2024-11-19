@@ -1,4 +1,4 @@
-package JOANGALMES;
+package JOANGALMES.config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -24,6 +24,15 @@ public class MySQLConnnection {
             instance = new MySQLConnnection();
         }
         return instance;
+    }
+
+    public Connection getConnection() {
+        if (connetion==null){
+            return this.connetion;
+        }else {
+            return null;
+        }
+
     }
 
     public void desconectar(){
