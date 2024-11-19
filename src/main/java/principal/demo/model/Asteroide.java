@@ -1,11 +1,14 @@
 package principal.demo.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
+// @Data obtiene los getters y setters de la clase Asteroide
+@Data
 @Entity
 @Table(name = "Asteroide")
 public class Asteroide {
@@ -16,6 +19,8 @@ public class Asteroide {
 //    @GeneratedValue(strategy = GenerationType.IDENTITY) // genera el id de forma automatica
     private Long id;
     @Column(name = "name")
+    // TODO Crear en la base de datos
+    private Long Id_Nasa;
     private String nombre;
     @Column(name = "absolute_magnitude")
     private double magnitud;
@@ -51,45 +56,7 @@ public class Asteroide {
         this.esPeligroso = esPeligroso;
     }
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public double getMagnitud() {
-        return magnitud;
-    }
-
-    public void setMagnitud(double magnitud) {
-        this.magnitud = magnitud;
-    }
-
-    public double getDiameter_km_average() {
-        return diameter_km_average;
-    }
-
-    public void setDiameter_km_average(double diameter_km_average) {
-        this.diameter_km_average = diameter_km_average;
-    }
-
-    public boolean isEsPeligroso() {
-        return esPeligroso;
-    }
-
-    public void setEsPeligroso(boolean esPeligroso) {
-        this.esPeligroso = esPeligroso;
-    }
 
     @Override
     public String toString() {

@@ -1,8 +1,9 @@
-package principal.demo.model;
+package principal.demo.DAO;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import principal.demo.model.Asteroide;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package JOANGALMES.controler;
 
-import JOANGALMES.DAO.TipusDAOImpl;
+import principal.demo.DAO.AproachDAOImpl;
 import JOANGALMES.service.TipusService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -15,7 +15,7 @@ public class TipusControleler extends HttpServlet {
 
     // Al ser una capa superior no se le puede hacer una injeccion de dependencias
     public TipusControleler() {
-        this.tipusService = new TipusService(new TipusDAOImpl());
+        this.tipusService = new TipusService(new AproachDAOImpl());
     }
 
     @Override

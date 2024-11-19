@@ -1,11 +1,12 @@
-package principal.demo.model;
+package principal.demo.DAO;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import principal.demo.model.Asteroide;
 
 
-public class SegundoUpdateAsteroide {
+public class SaveAsteroide {
     public static void main(String[] args) {
 
 
@@ -14,17 +15,11 @@ public class SegundoUpdateAsteroide {
         Session miSession = myFactory.openSession();
 
         try {
-            // TODO 2n formna
-
-
+            Asteroide asteroide1 = new Asteroide( "MayorPeroNoPeligros", 250.55, 5.26, true);
             miSession.beginTransaction();
-
-          miSession.createQuery("update Asteroide set nombre='Hello112' where nombre like 'H%'" ).executeUpdate();
-          // Borrar un registro
-            miSession.createQuery("delete Asteroide  where id=502" ).executeUpdate();
-
+            miSession.save(asteroide1);
             miSession.getTransaction().commit();
-            System.out.println("Se ha modificado correctamente correctamente");
+            System.out.println("Insert correctamente");
 
             miSession.close();
 

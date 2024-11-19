@@ -1,9 +1,11 @@
 package principal.demo.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.sql.Date;
-
+// @Data obtiene los getters y setters de la clase Asteroide
+@Data
 @Entity
 @Table(name = "Aproach")
 public class Aproach {
@@ -40,54 +42,7 @@ public class Aproach {
         this.asteroideAAA = asteroideAAA;
     }
 
-    // getters y setters
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Date getApproach_date() {
-        return approach_date;
-    }
-
-    public void setApproach_date(Date approach_date) {
-        this.approach_date = approach_date;
-    }
-
-    public Float getVelocidad() {
-        return velocidad;
-    }
-
-    public void setVelocidad(Float velocity) {
-        this.velocidad = velocity;
-    }
-
-    public Float getDistance() {
-        return distance;
-    }
-
-    public void setDistance(Float distance) {
-        this.distance = distance;
-    }
-
-    public String getOrbiting_body() {
-        return orbiting_body;
-    }
-
-    public void setOrbiting_body(String orbiting_body) {
-        this.orbiting_body = orbiting_body;
-    }
-
-    public Asteroide getAsteroideAAA() {
-        return asteroideAAA;
-    }
-
-    public void setAsteroideAAA(Asteroide asteroideAAA) {
-        this.asteroideAAA = asteroideAAA;
-    }
 
     @Override
     public String toString() {

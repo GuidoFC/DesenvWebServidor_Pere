@@ -1,19 +1,19 @@
 package JOANGALMES.service;
 
-import JOANGALMES.DAO.TipusDao;
+import principal.demo.DAO.AproachDao;
 import JOANGALMES.model.Tipus;
 
 import java.util.List;
 
 public class TipusService {
-    TipusDao tipusDao;
+    AproachDao aproachDao;
 
     // Le estoy pasando una Interficie para aplicar la injeccion de indepencencia
-    public TipusService(TipusDao tipusDao) {
-        this.tipusDao = tipusDao;
+    public TipusService(AproachDao aproachDao) {
+        this.aproachDao = aproachDao;
     }
 
     public List<Tipus> findAll() {
-        return tipusDao.findAll();
+        return aproachDao.findAll();
     }
 }

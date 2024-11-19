@@ -1,35 +1,36 @@
-package JOANGALMES.DAO;
+package principal.demo.DAO;
 
 import JOANGALMES.config.MySQLConnnection;
-import JOANGALMES.model.Tipus;
+import principal.demo.model.Aproach;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TipusDAOImpl implements TipusDao{
+public class AproachDAOImpl implements AproachDao {
     private MySQLConnnection mySQLConnnection;
 
-    public TipusDAOImpl() {
+    public AproachDAOImpl() {
         this.mySQLConnnection = MySQLConnnection.getInstance();
     }
 
     @Override
-    public List<Tipus> findAll() {
-        String sql = "select * from tipus";
+    public List<Aproach> findAll() {
+        // TODO esto esta hecho por Joan, tengo que modificarlo
+        String sql = "select * from Aproach";
         try {
             PreparedStatement preparedStatement = this.mySQLConnnection.getConnection().prepareStatement(sql);
 
             ResultSet resultSet = preparedStatement.executeQuery();
-            List<Tipus> result = new ArrayList<>();
+            List<Aproach> result = new ArrayList<>();
 
             while (resultSet.next()) {
-                Tipus tipus = new Tipus();
-                tipus.setId(resultSet.getLong("id"));
-                tipus.setNom(resultSet.getString("nom"));
+                Aproach Aproach = new Aproach();
+                Aproach.setId(resultSet.getLong("id"));
+//                Aproach.setNom(resultSet.getString("nom"));
 
-                result.add((tipus));
+                result.add((Aproach));
 
             }
 
@@ -44,17 +45,22 @@ public class TipusDAOImpl implements TipusDao{
     }
 
     @Override
-    public Tipus findById(Long aLong) {
+    public Aproach findById(Long aLong) {
         return null;
     }
 
     @Override
-    public void save(Tipus tipus) {
+    public void save(Aproach Aproach) {
 
     }
 
     @Override
-    public void delete(Tipus tipus) {
+    public void update(Aproach Aproach) {
+
+    }
+
+    @Override
+    public void delete(Aproach Aproach) {
 
     }
 }
