@@ -1,3 +1,4 @@
+$color: yellow;
 p{
-    color: red;
+    color: $color !important;
 }

@@ -19,7 +19,7 @@ public class Asteroide {
 //    @GeneratedValue(strategy = GenerationType.IDENTITY) // genera el id de forma automatica
     private Long id;
     @Column(name = "name")
-    // TODO Crear en la base de datos
+    // TODO Crear en la base de datos. puedo hacer que sea Unique
     private Long Id_Nasa;
     private String nombre;
     @Column(name = "absolute_magnitude")
