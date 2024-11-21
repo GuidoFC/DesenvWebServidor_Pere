@@ -41,11 +41,10 @@ public class AsteroideServletEditar extends HttpServlet {
             // 4 editarlo en la base de datos
             Long id = Long.parseLong(request.getParameter("id"));
             System.out.println("Editar Asteroide " + id);
-            Optional<Asteroide> asteroide = asteroideService.getAsteroideById(id);
+            Asteroide asteroide = asteroideService.getAsteroideById(id);
 
-            if (asteroide.isPresent()) {
-                // TODO porque se pone .get() ??
-                request.setAttribute("AsteroideEncontrado", asteroide.get());
+            if (asteroide != null) {
+                request.setAttribute("AsteroideEncontrado", asteroide);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/edit-asteroide.jsp");
                 dispatcher.forward(request, response);
             } else {
