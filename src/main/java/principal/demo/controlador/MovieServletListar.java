@@ -51,6 +51,10 @@ public class MovieServletListar extends HttpServlet {
 
         List<Asteroide> listaAsteroide = asteroideService.getListAsteroideFromService();
 
+        for (int i = 0; i < listaAsteroide.size(); i++) {
+            System.out.println(listaAsteroide.get(i).toString());
+        }
+        System.out.println("Fin del bucle");
         request.setAttribute("listaAsteroide", listaAsteroide);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/index2.jsp");
