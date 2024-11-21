@@ -34,7 +34,7 @@ public class AsteroideDAOAntiguo implements AsteroideDAO{
 //   result.get...: Obtiene los valores de cada columna (id, title, description, year) para crear un objeto Movie
                 Long id = rs.getLong("id");
                 String name = rs.getString("name");
-                Double absolute_magnitude = rs.getDouble("description");
+                Double absolute_magnitude = rs.getDouble("absolute_magnitude");
                 Double diameter_km_average = rs.getDouble("diameter_km_average");
                 Boolean isPotentiallyHazardous = rs.getBoolean("is_potentially_hazardous");
 
@@ -44,7 +44,7 @@ public class AsteroideDAOAntiguo implements AsteroideDAO{
                 list.add(asteroide1);
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace(); // Esto imprimirá la traza completa del error
             System.out.println("AsteroideDAOAntiguo en findAll hay un error");
         }
         System.out.println("AsteroideDAOAntiguo en findAll he devuelvo la lista");
