@@ -16,7 +16,10 @@
     <br>
     <a href="/nasa">Regresar al index</a>
     <br>
-    <a href="crear?accion=crearAsteroide">Añadir Asteroid</a>
+    <a href="crear?accion=crearAsteroide">Añadir Asteroide</a>
+    <br>
+    <br>
+    <a href="eliminar?accion=eliminarTodo">Eliminar Todos Los Asteroide</a>
     <br>
     <br>
     <table border="1">

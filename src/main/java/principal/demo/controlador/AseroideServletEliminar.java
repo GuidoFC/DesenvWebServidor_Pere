@@ -35,6 +35,15 @@ public class AseroideServletEliminar extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("Dentro del Servlet de eliminar do Get");
         // Cogemos el parametro del id
+
+        String action = request.getParameter("accion");
+        if ("eliminarTodo".equals(action)) {
+
+            List<Asteroide> listaAsteroide = asteroideService.getListAsteroideFromService();
+            asteroideService.removeAllAsteroide(listaAsteroide);
+            processRequest(request, response);
+        }
+
         int id = Integer.parseInt(request.getParameter("id"));
         Asteroide asteroide = asteroideService.getAsteroideById(id);
 
