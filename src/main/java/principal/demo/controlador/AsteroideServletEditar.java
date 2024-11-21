@@ -22,7 +22,7 @@ import java.util.Optional;
 
 //
 // Declara la clase MovieServlet, que extiende HttpServlet, lo que significa que esta clase puede manejar solicitudes HTTP, como GET o POST.
-public class MovieServletEditar extends HttpServlet {
+public class AsteroideServletEditar extends HttpServlet {
     private AsteroideDAOAntiguo asteroideDAOAntiguo = new AsteroideDAOAntiguo();
     private AsteroideService asteroideService = new AsteroideService(asteroideDAOAntiguo);
 
@@ -46,7 +46,7 @@ public class MovieServletEditar extends HttpServlet {
             if (asteroide.isPresent()) {
                 // TODO porque se pone .get() ??
                 request.setAttribute("AsteroideEncontrado", asteroide.get());
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/edit-movie.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/edit-asteroide.jsp");
                 dispatcher.forward(request, response);
             } else {
                 response.sendRedirect("litarTodasAsteroides"); // Redirigir a la lista si Asteroide no existe
