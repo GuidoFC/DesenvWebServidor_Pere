@@ -82,7 +82,7 @@ public class AsteroideDaoImpl implements AsteroideDAO {
         Session miSession = myFactory.openSession();
         List<Asteroide> listaAsteroides = null;
         try {
-            // comenzar sesion
+            // comenzar sesion Subir con pull
             miSession.beginTransaction();
 
             // consulta de asteroides
