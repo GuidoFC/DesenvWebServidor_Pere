@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Asteroid { // lo ha generado solo
+public class AsteroidJPASOLO { // lo ha generado solo
     @Id
     @Size(max = 255)
     @Column(name = "Id", nullable = false)

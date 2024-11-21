@@ -1,4 +1,4 @@
-<%@ page import="principal.hellodia24.Importante.modelo.Movie" %><%--
+<%@ page import="principal.demo.model.Asteroide" %><%--
   Created by IntelliJ IDEA.
   User: Guido
   Date: 04/11/2024
@@ -11,33 +11,44 @@
     <title>Title</title>
 </head>
 <body>
-<div class="container">
-    <div class="col-lg-6">
-        <%
+<div class="col-lg-6">
+    <%
+        // Obtenemos el objeto Asteroide desde el request
+        Asteroide asteroide = (Asteroide) request.getAttribute("AsteroideEncontrado");
+    %>
+    <h1>Editar Asteroide</h1>
 
-            Movie movie = (Movie) request.getAttribute("peliculaEncontrada");
-        %>
-        <h1>Editar Película</h1>
-//        Llamamos al servlet y con el método Post para editar la pelicar
-        <form action="editar?accion=actualizarPelicula" method="post">
-            Título:<br>
-            <input class="form-control" type="text" name="txtTitle" value="<%= movie.getTitle() %>"><br>
+    <!-- Llamamos al servlet con el método POST para editar el asteroide -->
+    <form action="editar?accion=actualizarAsteroide" method="post">
+        <!-- Campo para editar el nombre -->
+        Nombre:<br>
+        <input class="form-control" type="text" name="txtNombre" value="<%= asteroide.getNombre() %>"><br>
 
-            Descripción: <br>
-            <input class="form-control" type="text" name="txtDescription" value="<%= movie.getDescription() %>"><br>
+        <!-- Campo para editar la magnitud -->
+        Magnitud absoluta: <br>
+        <input class="form-control" type="number" name="txtMagnitud" value="<%= asteroide.getMagnitud() %>"><br>
 
-            Año: <br>
-            <input class="form-control" type="number" name="txtYear" value="<%= movie.getYear() %>"><br>
+        <!-- Campo para editar el diámetro promedio -->
+        Diámetro promedio (km): <br>
+        <input class="form-control" type="number" name="txtDiameterKmAverage"
+               value="<%= asteroide.getDiameter_km_average() %>"><br>
 
-//            Escondemos el id de la pelicula para que el usuario no lo vea
-            <br>
-            <input type="hidden" name="txtId" value="<%= movie.getId() %>">
+        <!-- Campo booleano para editar si es potencialmente peligroso -->
+        ¿Es peligroso?: <br>
+        <input type="checkbox" name="txtPeligroso" value="true" <%= asteroide.isEsPeligroso() ? "checked" : "" %>><br>
 
-            <input class="btn btn-primary" type="submit" name="accion" value="Actualizar">
-            <br>
-            <a href="litarTodasPeliculas">Regresar al listado de peliculas</a>
-        </form>
-    </div>
+        <!-- Campo oculto para el ID del asteroide -->
+        <input type="hidden" name="txtId" value="<%= asteroide.getId() %>">
+
+        <!-- Botón para actualizar -->
+        <br>
+        <input class="btn btn-primary" type="submit" value="Actualizar">
+        <br><br>
+
+        <!-- Enlace para regresar al listado -->
+        <a href="litarTodasAsteroides">Regresar al listado de asteroides</a>
+    </form>
+</div>
 </div>
 </body>
 

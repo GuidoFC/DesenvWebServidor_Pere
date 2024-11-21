@@ -70,7 +70,7 @@ public class AsteroideDAOAntiguo implements AsteroideDAO{
                 // Obtiene los valores de cada columna para crear el objeto Movie
 //                Long id = rs.getLong("id");
                 String name = rs.getString("name");
-                Double absolute_magnitude = rs.getDouble("description");
+                Double absolute_magnitude = rs.getDouble("absolute_magnitude");
                 Double diameter_km_average = rs.getDouble("diameter_km_average");
                 Boolean isPotentiallyHazardous = rs.getBoolean("is_potentially_hazardous");
 
