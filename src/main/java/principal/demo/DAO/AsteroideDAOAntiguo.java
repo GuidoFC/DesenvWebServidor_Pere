@@ -156,23 +156,25 @@ public class AsteroideDAOAntiguo implements AsteroideDAO{
 
 
     public void save(Asteroide crearAsteroide) {
-        String sql = "INSERT INTO movies ( name, absolute_magnitude, is_potentially_hazardous) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO Asteroide ( name, absolute_magnitude, diameter_km_average, is_potentially_hazardous) VALUES (?, ?, ?, ?)";
 
         try {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             // TODO creo que no es necesario si tengo Id autoincrement
-//            ps.setLong(1, crearAsteroide.getId());
+
+            // Mi base de datos tiene autoincrement para el id
             ps.setString(1, crearAsteroide.getNombre());
             ps.setDouble(2, crearAsteroide.getMagnitud());
             ps.setDouble(3, crearAsteroide.getDiameter_km_average());
-            ps.setBoolean(3, crearAsteroide.isEsPeligroso());
+            ps.setBoolean(4, crearAsteroide.isEsPeligroso());
 
             // Ejecuta la inserción
             ps.executeUpdate();
             System.out.println("Asteroide insertada correctamente en la base de datos.");
 
         } catch (Exception e) {
+            System.out.println("problemas al crear el objeto");
             e.printStackTrace(); // Muestra el error en la consola si ocurre una excepción
         } finally {
             // Cierra los recursos (ps, con) para evitar fugas de memoria
