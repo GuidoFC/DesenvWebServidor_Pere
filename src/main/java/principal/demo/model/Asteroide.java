@@ -16,11 +16,11 @@ public class Asteroide {
     // Explicacion del ManyToOne
 // https://www.youtube.com/watch?v=XPbBIpK8a9o&ab_channel=pildorasinformaticas
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY) // genera el id de forma automatica
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  // La base de datos genera el ID automáticamente
     private Long id;
-    @Column(name = "name")
-    // TODO Crear en la base de datos. puedo hacer que sea Unique
+//    @Column(name = "Id_nasa")
     private Long Id_Nasa;
+    @Column(name = "name")
     private String nombre;
     @Column(name = "absolute_magnitude")
     private double magnitud;
@@ -39,7 +39,7 @@ public class Asteroide {
     public Asteroide() {
     }
 
-    // Por si quiero yo crear un Asteroide
+    // Para que esto funcione tiene que tener la Base de datos un Autoincrement
     public Asteroide(String nombre, double magnitud, double diameter_km_average, boolean esPeligroso) {
         this.nombre = nombre;
         this.magnitud = magnitud;

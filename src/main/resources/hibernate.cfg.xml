@@ -7,7 +7,7 @@
         <!-- Configuración de la conexión a la base de datos -->
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 <!--        Todo que pongo 3306 o 3302-->
-        <property name="hibernate.connection.url">jdbc:mysql://mysqlfinal:3306/nasa</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3302/nasa</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
