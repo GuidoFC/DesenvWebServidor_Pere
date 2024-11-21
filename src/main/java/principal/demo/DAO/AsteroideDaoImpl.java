@@ -16,6 +16,9 @@ public class AsteroideDaoImpl implements AsteroideDAO {
 
 
     public AsteroideDaoImpl() {
+
+        System.out.println("AsteroideDaoImpl creando objeto");
+        // TODO AQUI ESTA EL ERROR
         this.myFactory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Asteroide.class).buildSessionFactory();
 
     }
@@ -75,6 +78,7 @@ public class AsteroideDaoImpl implements AsteroideDAO {
 
     @Override
     public List<Asteroide> findAll() {
+        System.out.println("Estoy en AsteroideDaoImpl detron del findAll");
         Session miSession = myFactory.openSession();
         List<Asteroide> listaAsteroides = null;
         try {
@@ -90,7 +94,7 @@ public class AsteroideDaoImpl implements AsteroideDAO {
 
 
         } catch (Exception e) {
-            System.out.println("Se ha producido un error");
+            System.out.println("Se ha producido un error en el metodo findAll de AsteroideDAoIMPL");
             if (miSession != null && miSession.getTransaction() != null) {
                 miSession.getTransaction().rollback(); // Revertir la transacción en caso de error
             }

@@ -13,6 +13,7 @@ public class Conexion {
 //            Este controlador permite que Java se conecte a bases de datos MySQL.
             Class.forName("com.mysql.cj.jdbc.Driver");
 //            Crea una conexión a la base de datos movies usando el usuario root y la contraseña root
+            // TODO Tomeu dice de cambiar por 3306 a 3302
             con = DriverManager.getConnection("jdbc:mysql://mysqlfinal:3306/nasa", "root", "root");
 
         } catch (RuntimeException e) {
