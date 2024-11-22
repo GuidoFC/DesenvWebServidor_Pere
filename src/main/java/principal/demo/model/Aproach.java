@@ -12,7 +12,6 @@ public class Aproach {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;  // Identificador único autogenerado
 
 
