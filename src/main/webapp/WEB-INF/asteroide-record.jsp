@@ -19,6 +19,11 @@
     <a href="crear?accion=crearAsteroide">Añadir Asteroide</a>
     <br>
     <br>
+
+    <a href="crear?accion=ApiNasa">Añadir Asteroide Desde la Api</a>
+    <br>
+    <br>
+
     <a href="eliminar?accion=eliminarTodo">Eliminar Todos Los Asteroide</a>
     <br>
     <br>

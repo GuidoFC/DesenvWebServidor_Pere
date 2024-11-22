@@ -16,8 +16,15 @@ import java.sql.Date;
 
 
 public class ChatGept {
-
     public static void main(String[] args) {
+        ChatGept obj = new ChatGept();
+        obj.procesarDatosNASA();
+    }
+
+    public ChatGept() {
+    }
+
+    public void procesarDatosNASA()  {
         String apiKey = "pRlxWWDRqBNWpDg8WS54wEfM7lF3Gl7E6gaXAOsc";
         SessionFactory myFactory = new Configuration().configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Asteroide.class).addAnnotatedClass(Aproach.class)

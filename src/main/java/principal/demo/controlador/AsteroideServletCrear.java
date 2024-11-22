@@ -1,5 +1,6 @@
 package principal.demo.controlador;
 
+import ObtenerJSonNasa.ChatGept;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -39,6 +40,10 @@ public class AsteroideServletCrear extends HttpServlet {
             dispatcher.forward(request, response);
 
 
+        } else if ("ApiNasa".equals(action)) {
+            ChatGept chatGept = new ChatGept();
+            chatGept.procesarDatosNASA();
+            processRequest(request, response);
         } else {
             processRequest(request, response); // Mostrar la lista de películas
         }
