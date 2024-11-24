@@ -64,7 +64,7 @@ public class UsuarioDAO {
 // TODO vale la pena hacer este metodo o basta q en la BD tenga la columna email como unique
     public boolean existeEmailEnUsuarios(String email) {
 // SELECT 1 -> si encuentra el email devolver 1
-        String sql = "SELECT 1 FROM usuarios WHERE email = ?";
+        String sql = "SELECT 1 FROM Usuario WHERE email = ?";
         boolean existe = false;
 
         try {
@@ -95,7 +95,7 @@ public class UsuarioDAO {
 
     public Usuario getUsuarioPorEmail(String email) {
         Usuario usuario = null;
-        String sql = "SELECT * FROM usuarios WHERE email = ?";
+        String sql = "SELECT * FROM Usuario WHERE email = ?";
 
         try {
             con = cn.getConnection();

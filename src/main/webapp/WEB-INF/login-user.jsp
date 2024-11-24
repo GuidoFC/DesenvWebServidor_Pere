@@ -1,4 +1,4 @@
-<%@ page import="principal.hellodia24.Importante.modelo.Usuario" %><%--
+<%@ page import="principal.demo.model.Usuario" %><%--
   Created by IntelliJ IDEA.
   User: Guido
   Date: 04/11/2024
@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Crear Usuario</title>
+    <title>Iniciar sesion Usuario</title>
 </head>
 <body>
 <div class="container">
@@ -48,6 +48,7 @@
                     class="form-control"
                     type="email"
                     name="txtEmail"
+                    value="<%= session.getAttribute("email") != null ? session.getAttribute("email") : "" %>"
                     required
             /><br/>
 
