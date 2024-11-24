@@ -7,7 +7,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import principal.demo.DAO.AsteroideDAOAntiguo;
+import principal.demo.model.Aproach;
 import principal.demo.model.Asteroide;
+import principal.demo.service.AproachService;
 import principal.demo.service.AsteroideService;
 
 import java.io.IOException;
@@ -37,11 +39,28 @@ public class AsteroideServletListar extends HttpServlet {
     //    Este méto_do doGet se ejecuta automáticamente cuando alguien hace una solicitud GET a la URL /movie
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String action = request.getParameter("accion");
         System.out.println("Estoy en AsteroideSerlet Listar doGet");
 
+        if ("verAproach".equals(action)){
+            System.out.println("Wow 1");
+            Long id = Long.parseLong(request.getParameter("idAsteroide"));
+            System.out.println("Obtener Asteroide con id " + id);
 
-        processRequest(request, response); // Mostrar la lista de películas
+            // TODO tengo que usar este ID del asteroide para filtrar solo los aproach de dicho Asteroide
+
+            AproachService aproachService = new AproachService();
+            List<Aproach> aproachlist = aproachService.getListAproachFromService();
+
+            request.setAttribute("aproachlist", aproachlist);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/aproach-record.jsp");
+            System.out.println("processRequest de MovieSerlvet 23");
+            dispatcher.forward(request, response);
+        }else {
+            processRequest(request, response); // Mostrar la lista de Asteroides
+        }
+
 
     }
 

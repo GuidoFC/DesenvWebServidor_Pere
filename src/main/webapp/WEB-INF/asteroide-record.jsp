@@ -60,6 +60,7 @@
                 <a href="editar?accion=editarAsteroide&id=<%= asteroide.getId() %>">Editar</a>
 
                 <a href="eliminar?id=<%= asteroide.getId() %>">Remove</a>
+                <a href="litarTodasAsteroides?accion=verAproach&idAsteroide=<%= asteroide.getId() %>">Ver Avistamiento</a>
             </td>
         </tr>
         <%

@@ -42,6 +42,14 @@ public class Aproach {
     }
 
 
+    public Aproach(Long id, Date approach_date, Float velocidad, Float distance, String orbiting_body) {
+        this.id = id;
+        this.approach_date = approach_date;
+        this.velocidad = velocidad;
+        this.distance = distance;
+        this.orbiting_body = orbiting_body;
+
+    }
 
     @Override
     public String toString() {
