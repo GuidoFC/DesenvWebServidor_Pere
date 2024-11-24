@@ -27,6 +27,29 @@
             Introduce tu Contraseña:<br>
             <input class="form-control" type="password" name="txtPassword" required><br>
 
+            <!-- Mostrar mensaje de error si existe No ha seleccionado un atributo,
+            En teoria no pasara porque el select esta puesto como required-->
+            <%
+                String errorRol = (String) request.getAttribute("errorRol");
+
+                if (errorRol != null) {
+            %>
+            <div style="color: red;">
+                <%= errorRol %>
+            </div>
+            <%
+                }
+            %>
+            Selecciona tu Rol:<br>
+            <select class="form-control" name="txtRol" required>
+                <option value="OBSERVADOR">Observador</option>
+                <option value="ASTRONOMO">Astrónomo</option>
+            </select>
+
+            <br>
+
+
+
             <input class="btn btn-primary" type="submit" name="accion" value="crear">
             <a href="/nasa">Regresar al index</a>
         </form>

@@ -1,4 +1,4 @@
-package principal.demo.controlador;
+package principal.demo.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -6,9 +6,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import principal.demo.model.Rol;
 import principal.demo.model.Usuario;
 import principal.demo.service.UsuarioService;
-
 
 import java.io.IOException;
 
@@ -44,11 +44,25 @@ public class UsuarioServletCrearUsuario extends HttpServlet {
             String name = request.getParameter("txtName");
             String email = request.getParameter("txtEmail");
             String password = request.getParameter("txtPassword");
+            String rolSeleccionado = request.getParameter("txtRol");
+
+
+            // Validar que el rol no sea nulo o vacío
+            if (rolSeleccionado == null || rolSeleccionado.isEmpty()) {
+                request.setAttribute("errorRol", "Debe seleccionar un rol válido.");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/crear-usuario.jsp");
+                dispatcher.forward(request, response);
+                return;
+            }
+
+            // Si usas un enum para los roles, conviértelo
+            Rol rol = Rol.valueOf(rolSeleccionado);
 
             Usuario usuario = new Usuario();
 
             usuario.setNombre(name);
             usuario.setEmail(email);
+            usuario.setRol(rol);
             // cirframos la contraseña
             String contrasenaCifrada = UsuarioService.hashPassword(password);
             usuario.setContrasena(contrasenaCifrada); // Asegúrate de cifrar la contraseña antes de guardarla

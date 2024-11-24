@@ -17,13 +17,14 @@ public class UsuarioDAO {
 
     
     public void crearUsuarioBD(Usuario crearUsuario) {
-        String sql = "INSERT INTO Usuario ( nombre, email, contrasena) VALUES ( ?, ?, ?)";
+        String sql = "INSERT INTO Usuario ( nombre, email, contrasena, rol) VALUES ( ?, ?, ?, ?)";
         try {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             ps.setString(1, crearUsuario.getNombre());
             ps.setString(2, crearUsuario.getEmail());
             ps.setString(3, crearUsuario.getContrasena());
+            ps.setString(4, crearUsuario.getRol().toString());
 
             // Ejecuta la inserción
             ps.executeUpdate();
