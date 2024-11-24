@@ -7,6 +7,35 @@
     <title>ListarAsteroideTitulo</title>
 </head>
 <body>
+
+<%
+    String name = (String) request.getSession().getAttribute("name");
+    String email = (String) request.getSession().getAttribute("email");
+
+
+    if (name != null) {
+%>
+<div style="color: blue;">
+    <p>Nombre:  <%= name %>
+    </p>
+    <p>Email: <%= email %>
+    </p>
+
+</div>
+<div>
+    <a href="cerrarSesion"> Cerrar Session</a>
+    <br>
+    <br>
+
+</div>
+<%
+    }
+%>
+
+<br>
+<br>
+
+
 <h1><%= "Estamos en Asteroide-recod.jsp" %>
 </h1>
 <br/>
