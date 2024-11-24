@@ -1,4 +1,4 @@
-<%@ page import="principal.hellodia24.Importante.modelo.Usuario" %><%--
+<%@ page import="principal.demo.model.Usuario" %><%--
   Created by IntelliJ IDEA.
   User: Guido
   Date: 04/11/2024
@@ -17,7 +17,6 @@
         <h1>Crear un Usuario: </h1>
 
 
-
         <form action="crearUsuario?accion=FormulariocrearUsuario" method="post">
             Nombre:<br>
             <input class="form-control" type="text" name="txtName" required><br>
@@ -29,7 +28,7 @@
             <input class="form-control" type="password" name="txtPassword" required><br>
 
             <input class="btn btn-primary" type="submit" name="accion" value="crear">
-            <a href="/AppWeb24">Regresar al index</a>
+            <a href="/nasa">Regresar al index</a>
         </form>
     </div>
 
