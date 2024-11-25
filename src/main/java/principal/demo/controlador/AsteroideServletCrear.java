@@ -85,14 +85,17 @@ public class AsteroideServletCrear extends HttpServlet {
 
         if ("crearAsteroide".equals(action)) {
 
-
+            Long id_Nasa = Long.parseLong(request.getParameter("txtId_nasa"));
             String nombre = request.getParameter("txtNombre");
             Double magnitud = Double.parseDouble(request.getParameter("txtMagnitud"));
             Double diameterKmAverage = Double.parseDouble(request.getParameter("txtDiameterKmAverage"));
             Boolean esPeligros = Boolean.parseBoolean(request.getParameter("txtPeligroso"));
 
-            Asteroide crearAsteroide = new Asteroide(null, nombre, magnitud, diameterKmAverage, esPeligros);
-            asteroideService.crearAsteroide(crearAsteroide);
+            Asteroide crearAsteroide = new Asteroide(id_Nasa, nombre, magnitud, diameterKmAverage, esPeligros);
+
+             AsteroideDAOAntiguo asteroideDAOAntiguo1 = new AsteroideDAOAntiguo();
+             AsteroideService asteroideServiceAntiguo = new AsteroideService(asteroideDAOAntiguo1);
+            asteroideServiceAntiguo.crearAsteroide(crearAsteroide);
             response.sendRedirect("litarTodasAsteroides"); // Redirigir a la lista de películas
         }
     }

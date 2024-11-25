@@ -18,6 +18,10 @@
         <h1>Crear un Asteroide</h1>
 
         <form action="crear?accion=crearAsteroide" method="post">
+
+            Id_nasa: <br>
+            <input class="form-control" type="number"  name="txtId_nasa" placeholder="2000719" required><br>
+
             <!-- Campo para ingresar el nombre -->
             Nombre:<br>
             <input class="form-control" type="text" name="txtNombre" placeholder="Ingrese el nombre del asteroide" required><br>

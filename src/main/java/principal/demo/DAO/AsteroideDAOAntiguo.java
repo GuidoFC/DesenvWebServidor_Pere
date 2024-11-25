@@ -157,7 +157,7 @@ public class AsteroideDAOAntiguo implements AsteroideDAO{
 
 
     public void save(Asteroide crearAsteroide) {
-        String sql = "INSERT INTO Asteroide ( name, absolute_magnitude, diameter_km_average, is_potentially_hazardous) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO Asteroide ( id_Nasa, name, absolute_magnitude, diameter_km_average, is_potentially_hazardous) VALUES (?,?, ?, ?, ?)";
 
         try {
             con = cn.getConnection();
@@ -165,10 +165,11 @@ public class AsteroideDAOAntiguo implements AsteroideDAO{
             // TODO creo que no es necesario si tengo Id autoincrement
 
             // Mi base de datos tiene autoincrement para el id
-            ps.setString(1, crearAsteroide.getNombre());
-            ps.setDouble(2, crearAsteroide.getMagnitud());
-            ps.setDouble(3, crearAsteroide.getDiameter_km_average());
-            ps.setBoolean(4, crearAsteroide.isEsPeligroso());
+            ps.setLong(1, crearAsteroide.getId_Nasa());
+            ps.setString(2, crearAsteroide.getNombre());
+            ps.setDouble(3, crearAsteroide.getMagnitud());
+            ps.setDouble(4, crearAsteroide.getDiameter_km_average());
+            ps.setBoolean(5, crearAsteroide.isEsPeligroso());
 
             // Ejecuta la inserción
             ps.executeUpdate();
