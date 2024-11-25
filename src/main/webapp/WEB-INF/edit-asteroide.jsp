@@ -20,6 +20,19 @@
 
     <!-- Llamamos al servlet con el método POST para editar el asteroide -->
     <form action="editar?accion=actualizarAsteroide" method="post">
+
+        <%-- Mostrar mensaje de error si existe --%>
+        <% String errorMensaje = (String) request.getAttribute("errorMensaje"); %>
+        <% if (errorMensaje != null) { %>
+        <br>
+        <p style="color: red">
+            <%= errorMensaje %>
+        </p>
+        <br>
+        <% } %>
+
+        Id_Nasa:<br>
+        <input class="form-control" type="number" name="txtId_Nasa" value="<%= asteroide.getId_Nasa() %>"><br>
         <!-- Campo para editar el nombre -->
         Nombre:<br>
         <input class="form-control" type="text" name="txtNombre" value="<%= asteroide.getNombre() %>"><br>

@@ -11,7 +11,6 @@ import principal.demo.model.Asteroide;
 import principal.demo.service.AsteroideService;
 
 import java.io.IOException;
-import java.util.Optional;
 
 //Esta es una anotación para decirle a Java que esta clase será un "Servlet".
 // Un servlet es básicamente una pequeña aplicación que responde a solicitudes en la web.
@@ -67,22 +66,37 @@ public class AsteroideServletEditar extends HttpServlet {
             throws ServletException, IOException {
         String action = request.getParameter("accion");
 
-        System.out.println("Estoy en editar serlet en el metodo doPost");
+
         if ("actualizarAsteroide".equals(action)) {
-            System.out.println("Editar Asteroide Actualizada dentro del if");
 
 
             Long id = Long.valueOf(request.getParameter("txtId"));
+            Long id_NAsa = Long.valueOf(request.getParameter("txtId_Nasa"));
             String nombre = request.getParameter("txtNombre");
             Double magnitud = Double.parseDouble(request.getParameter("txtMagnitud"));
             Double diameterKmAverage = Double.parseDouble(request.getParameter("txtDiameterKmAverage"));
             Boolean esPeligros = Boolean.parseBoolean(request.getParameter("txtPeligroso"));
 
+            // Obtener el asteroide actual
+            Asteroide asteroideActual = asteroideService.getAsteroideById(id);
 
-            Asteroide updatedAsteroide = new Asteroide(id, nombre, magnitud, diameterKmAverage, esPeligros);
-            asteroideService.updateAsteroide(updatedAsteroide);
+            // Verificar si el nuevo idNasa ya existe en otro asteroide
+            Asteroide asteroideConMismoIdNasa = asteroideService.obtenerAsteroidePorIdNasa(id_NAsa);
 
-            response.sendRedirect("litarTodasAsteroides"); // Redirigir a la lista de películas
+            if (asteroideConMismoIdNasa != null && !asteroideConMismoIdNasa.getId().equals(id)) {
+                // El idNasa ya existe en otro asteroide
+                request.setAttribute("errorMensaje", "El Id_Nasa ingresado ya existe en otro asteroide.");
+                request.setAttribute("AsteroideEncontrado", asteroideActual);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/edit-asteroide.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                // Actualizar los datos del asteroide
+                Asteroide updatedAsteroide = new Asteroide(id, id_NAsa, nombre, magnitud, diameterKmAverage, esPeligros);
+                // TODO tengo q mirar si esta el ID_Nasa
+                asteroideService.updateAsteroide(updatedAsteroide);
+
+                response.sendRedirect("litarTodasAsteroides"); // Redirigir a la lista de películas
+            }
         }
     }
 

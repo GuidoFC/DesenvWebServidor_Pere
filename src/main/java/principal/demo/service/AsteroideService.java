@@ -151,4 +151,10 @@ public class AsteroideService {
         double media = (diametro_max + diametro_min) / 2;
         return media;
     }
+
+    public Asteroide obtenerAsteroidePorIdNasa(Long idNAsa) {
+        Asteroide asteroide = asteroideDao.findById_NASA(idNAsa);
+
+        return asteroide;
+    }
 }
