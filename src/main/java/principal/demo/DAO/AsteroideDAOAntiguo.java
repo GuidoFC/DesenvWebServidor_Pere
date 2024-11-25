@@ -70,13 +70,15 @@ public class AsteroideDAOAntiguo implements AsteroideDAO{
             if (rs.next()) {
                 // Obtiene los valores de cada columna para crear el objeto Movie
 //                Long id = rs.getLong("id");
+                Long Id_Nasa = rs.getLong("Id_Nasa");
                 String name = rs.getString("name");
                 Double absolute_magnitude = rs.getDouble("absolute_magnitude");
                 Double diameter_km_average = rs.getDouble("diameter_km_average");
                 Boolean isPotentiallyHazardous = rs.getBoolean("is_potentially_hazardous");
 
 
-                asteroide1 = new Asteroide(id, name, absolute_magnitude, diameter_km_average, isPotentiallyHazardous);
+                asteroide1 = new Asteroide(id, Id_Nasa, name, absolute_magnitude, diameter_km_average, isPotentiallyHazardous);
+
             }
         } catch (Exception e) {
             e.printStackTrace(); // Muestra el error en la consola si ocurre una excepción
@@ -90,7 +92,7 @@ public class AsteroideDAOAntiguo implements AsteroideDAO{
     public void update(Asteroide asteroide) {
 
         String sql = "UPDATE Asteroide SET name = ?, absolute_magnitude = ?, diameter_km_average = ?, is_potentially_hazardous = ? WHERE id = ?";
-
+            // TODO tengo que añadir un parametro más para actualizar ID_NASA
         try {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);

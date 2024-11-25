@@ -44,12 +44,12 @@ public class AseroideServletEliminar extends HttpServlet {
             processRequest(request, response);
         }
 
-        int id = Integer.parseInt(request.getParameter("id"));
+        Long id = Long.parseLong(request.getParameter("id"));
         Asteroide asteroide = asteroideService.getAsteroideById(id);
 
         if (asteroide != null) {
             asteroideService.removeAsteroide(asteroide);
-            System.out.println("Hemos elimanado la pelicula con id: " + id);
+            System.out.println("Hemos elimanado el asteroide con id: " + id);
             response.sendRedirect("litarTodasAsteroides"); // Refrescamos la pantalla para ver todas las pelis sin la peli eliminada
         } else {
             processRequest(request, response); // Mostrar la lista de películas
