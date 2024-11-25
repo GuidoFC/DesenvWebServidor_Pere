@@ -48,15 +48,23 @@ public class Asteroide {
     }
 
     // Por si insertamos desde una API
-    public Asteroide(Long id, String nombre, double magnitud, double diameter_km_average, boolean esPeligroso) {
-        this.id = id;
+    public Asteroide(Long id_Nasa, String nombre, double magnitud, double diameter_km_average, boolean esPeligroso) {
+        this.Id_Nasa = id_Nasa;
         this.nombre = nombre;
         this.magnitud = magnitud;
         this.diameter_km_average = diameter_km_average;
         this.esPeligroso = esPeligroso;
     }
 
-
+    // Uso cuando recupero la info de la base de datos
+    public Asteroide(Long id, Long id_Nasa, String nombre, double magnitud, double diameter_km_average, boolean esPeligroso) {
+        this.id = id;
+        Id_Nasa = id_Nasa;
+        this.nombre = nombre;
+        this.magnitud = magnitud;
+        this.diameter_km_average = diameter_km_average;
+        this.esPeligroso = esPeligroso;
+    }
 
     @Override
     public String toString() {

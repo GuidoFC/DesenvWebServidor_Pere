@@ -59,7 +59,8 @@
     <table border="1">
         <thead>
         <tr>
-            <th>ID</th>
+
+            <th>ID_Nasa</th>
             <th>name</th>
             <th>absolute_magnitude</th>
             <th>diameter_km_average</th>
@@ -73,8 +74,7 @@
                 for (Asteroide asteroide : listaAsteroide) {
         %>
         <tr>
-
-            <td><%= asteroide.getId() %>
+            <td><%= asteroide.getId_Nasa() %>
             </td>
             <td><%= asteroide.getNombre() %>
             </td>

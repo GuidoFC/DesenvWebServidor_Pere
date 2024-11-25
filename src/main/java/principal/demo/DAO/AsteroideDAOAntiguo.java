@@ -33,13 +33,14 @@ public class AsteroideDAOAntiguo implements AsteroideDAO{
             while (rs.next()) {
 //   result.get...: Obtiene los valores de cada columna (id, title, description, year) para crear un objeto Movie
                 Long id = rs.getLong("id");
+                Long id_nasa = rs.getLong("Id_Nasa");
                 String name = rs.getString("name");
                 Double absolute_magnitude = rs.getDouble("absolute_magnitude");
                 Double diameter_km_average = rs.getDouble("diameter_km_average");
                 Boolean isPotentiallyHazardous = rs.getBoolean("is_potentially_hazardous");
 
 
-                Asteroide asteroide1 = new Asteroide(id, name, absolute_magnitude, diameter_km_average, isPotentiallyHazardous);
+                Asteroide asteroide1 = new Asteroide(id, id_nasa,name, absolute_magnitude, diameter_km_average, isPotentiallyHazardous);
 
                 list.add(asteroide1);
             }
