@@ -83,7 +83,7 @@ public class AsteroideServletEditar extends HttpServlet {
             // Verificar si el nuevo idNasa ya existe en otro asteroide
             Asteroide asteroideConMismoIdNasa = asteroideService.obtenerAsteroidePorIdNasa(id_NAsa);
 
-            if (asteroideConMismoIdNasa != null && !asteroideConMismoIdNasa.getId().equals(id)) {
+            if (asteroideConMismoIdNasa != null) {
                 // El idNasa ya existe en otro asteroide
                 request.setAttribute("errorMensaje", "El Id_Nasa ingresado ya existe en otro asteroide.");
                 request.setAttribute("AsteroideEncontrado", asteroideActual);

@@ -91,12 +91,26 @@ public class AsteroideServletCrear extends HttpServlet {
             Double diameterKmAverage = Double.parseDouble(request.getParameter("txtDiameterKmAverage"));
             Boolean esPeligros = Boolean.parseBoolean(request.getParameter("txtPeligroso"));
 
-            Asteroide crearAsteroide = new Asteroide(id_Nasa, nombre, magnitud, diameterKmAverage, esPeligros);
+            // Verificar si el nuevo idNasa ya existe en otro asteroide
+            AsteroideDAOAntiguo asteroideDAOAntiguo1 = new AsteroideDAOAntiguo();
+            AsteroideService asteroideServiceAntiguo = new AsteroideService(asteroideDAOAntiguo1);
+            Asteroide asteroideConMismoIdNasa = asteroideServiceAntiguo.obtenerAsteroidePorIdNasa(id_Nasa);
 
-             AsteroideDAOAntiguo asteroideDAOAntiguo1 = new AsteroideDAOAntiguo();
-             AsteroideService asteroideServiceAntiguo = new AsteroideService(asteroideDAOAntiguo1);
-            asteroideServiceAntiguo.crearAsteroide(crearAsteroide);
-            response.sendRedirect("litarTodasAsteroides"); // Redirigir a la lista de películas
+            if (asteroideConMismoIdNasa != null) {
+                // El idNasa ya existe en otro asteroide
+                request.setAttribute("errorMensaje", "El Id_Nasa ingresado ya existe en otro asteroide.");
+
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/crear-asteroide.jsp");
+                dispatcher.forward(request, response);
+
+            } else {
+                Asteroide crearAsteroide = new Asteroide(id_Nasa, nombre, magnitud, diameterKmAverage, esPeligros);
+
+                asteroideServiceAntiguo.crearAsteroide(crearAsteroide);
+                response.sendRedirect("litarTodasAsteroides"); // Redirigir a la lista de Asteroides
+            }
+
+
         }
     }
 
