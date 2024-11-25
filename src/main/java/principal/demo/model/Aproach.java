@@ -13,8 +13,6 @@ public class Aproach {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;  // Identificador único autogenerado
-
-
     private java.sql.Date approach_date;
     // @Column tiene q poner el nombre de la base de datos. He puesto aqui un ejemplo
     // pq los otros atributos coinciden con el nombre de la tabla
@@ -32,7 +30,7 @@ public class Aproach {
     // constructor
     public Aproach() {
     }
-
+// Voy a usarlo en la API
     public Aproach(Date approach_date, Float velocidad, Float distance, String orbiting_body, Asteroide asteroideAAA) {
         this.approach_date = approach_date;
         this.velocidad = velocidad;
@@ -48,7 +46,6 @@ public class Aproach {
         this.velocidad = velocidad;
         this.distance = distance;
         this.orbiting_body = orbiting_body;
-
     }
 
     @Override
