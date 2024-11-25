@@ -19,15 +19,25 @@
 
         <form action="crear?accion=crearAsteroide" method="post">
 
+            <%-- Mostrar mensaje de error si existe --%>
+            <% String errorMensaje = (String) request.getAttribute("errorMensaje"); %>
+            <% if (errorMensaje != null) { %>
+            <br>
+            <p style="color: red">
+                <%= errorMensaje %>
+            </p>
+            <br>
+            <% } %>
+
             Id_nasa: <br>
-            <input class="form-control" type="number"  name="txtId_nasa" placeholder="2000719" required><br>
+            <input class="form-control" type="number" name="txtId_nasa" placeholder="2000719" required><br>
 
             <!-- Campo para ingresar el nombre -->
             Nombre:<br>
             <input class="form-control" type="text" name="txtNombre" placeholder="Ingrese el nombre del asteroide" required><br>
 
             <!-- Campo para ingresar la magnitud -->
-<%--             step="0.01" significa que permite 2 decimales--%>
+            <%--             step="0.01" significa que permite 2 decimales--%>
             Magnitud absoluta: <br>
             <input class="form-control" type="number" step="0.01" name="txtMagnitud" placeholder="12.03" required><br>
 
