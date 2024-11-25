@@ -240,6 +240,11 @@ public class AsteroideDaoImpl implements AsteroideDAO {
         }
     }
 
+    @Override
+    public Asteroide findById_NASA(Long idNAsa) {
+        return null;
+    }
+
     private static void recorrerAsteroide(List<Asteroide> listaAsteroides) {
         for (Asteroide unAsteroide : listaAsteroides) {
             System.out.println(unAsteroide);
