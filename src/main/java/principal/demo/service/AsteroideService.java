@@ -84,6 +84,7 @@ public class AsteroideService {
                     miSession.getTransaction().commit();
                     System.out.println("Insert correctamente del Asteroide");
                 } catch (Exception e) {
+                    miSession.getTransaction().rollback();
                     System.out.println("Error al insertar el Asteroide");
                     e.printStackTrace();
                 } finally {

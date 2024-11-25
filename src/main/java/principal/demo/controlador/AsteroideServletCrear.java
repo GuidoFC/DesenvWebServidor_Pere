@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 import principal.demo.DAO.AsteroideDAOAntiguo;
+import principal.demo.DAO.AsteroideDaoImpl;
 import principal.demo.model.Asteroide;
 import principal.demo.service.AsteroideService;
 import principal.demo.service.NasaApiService;
@@ -27,7 +28,10 @@ import java.util.List;
 // Declara la clase MovieServlet, que extiende HttpServlet, lo que significa que esta clase puede manejar solicitudes HTTP, como GET o POST.
 public class AsteroideServletCrear extends HttpServlet {
     private AsteroideDAOAntiguo asteroideDAOAntiguo = new AsteroideDAOAntiguo();
-    private AsteroideService asteroideService = new AsteroideService(asteroideDAOAntiguo);
+
+    private AsteroideDaoImpl asteroideDaoJPA = new AsteroideDaoImpl();
+
+    private AsteroideService asteroideService = new AsteroideService(asteroideDaoJPA);
 
     //    Este méto_do doGet se ejecuta automáticamente cuando alguien hace una solicitud GET a la URL /movie
     @Override
