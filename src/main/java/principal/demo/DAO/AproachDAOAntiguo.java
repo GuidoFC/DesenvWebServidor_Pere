@@ -17,12 +17,13 @@ public class AproachDAOAntiguo {
     PreparedStatement ps;
     ResultSet rs;
 
-    public List<Aproach> findAll() {
+    public List<Aproach> findAll(Long id_asteroide) {
         ArrayList<Aproach> list = new ArrayList<>();
-        String sql = "select * from Aproach";
+        String sql = "select * from Aproach where asteroid_id = ?";
         try {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
+            ps.setLong(1, id_asteroide);
             rs = ps.executeQuery();
             while (rs.next()) {
 //   result.get...: Obtiene los valores de cada columna (id, title, description, year) para crear un objeto Movie
@@ -35,7 +36,7 @@ public class AproachDAOAntiguo {
                 Float distance = rs.getFloat("distance");
                 String orbiting_body = rs.getString("orbiting_body");
 
-                // Long asteroid_id = rs.getLong("asteroid_id");
+//                 Long asteroid_id = rs.getLong("asteroid_id");
 
 
                 Aproach aproach = new Aproach(id, date, velocity,distance, orbiting_body);

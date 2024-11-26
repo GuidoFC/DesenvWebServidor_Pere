@@ -15,11 +15,11 @@ public class AproachService {
         aproachDAOAntiguo = new AproachDAOAntiguo();
     }
 
-    public List<Aproach> getListAproachFromService() {
+    public List<Aproach> getListAproachFromService(Long id_asteroide) {
         System.out.println("Estoy en AproachService en metodo getListAproachFromService");
 
         System.out.println("he creado un objeto DAO?");
-        List<Aproach> list = aproachDAOAntiguo.findAll();
+        List<Aproach> list = aproachDAOAntiguo.findAll(id_asteroide);
 
         return list;
     }

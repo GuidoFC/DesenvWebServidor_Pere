@@ -50,7 +50,7 @@ public class AsteroideServletListar extends HttpServlet {
             // TODO tengo que usar este ID del asteroide para filtrar solo los aproach de dicho Asteroide
 
             AproachService aproachService = new AproachService();
-            List<Aproach> aproachlist = aproachService.getListAproachFromService();
+            List<Aproach> aproachlist = aproachService.getListAproachFromService(id);
 
             request.setAttribute("aproachlist", aproachlist);
 

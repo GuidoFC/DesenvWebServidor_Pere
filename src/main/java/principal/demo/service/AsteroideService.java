@@ -109,11 +109,12 @@ public class AsteroideService {
                     Session miSession1 = sessionFactory.openSession();
                     try {
                         miSession1.beginTransaction();
-                        Asteroide miAsteroide = miSession1.get(Asteroide.class, id_Asteroide_Nasa);
 
-                        if (miAsteroide != null) {  // Verificar si miAsteroide no es null
-                            Aproach miAproachDef = new Aproach(approachDateFormato, kilometersPerSecond, dintancia_luna, orbiting_body, miAsteroide);
-                            miAsteroide.agregarAproach(miAproachDef);
+
+
+                        if (asteroide1 != null) {  // Verificar si miAsteroide no es null
+                            Aproach miAproachDef = new Aproach(approachDateFormato, kilometersPerSecond, dintancia_luna, orbiting_body, asteroide1);
+                            asteroide1.agregarAproach(miAproachDef);
                             miSession1.save(miAproachDef);
                             miSession1.getTransaction().commit();
                             System.out.println("Insert correctamente del Aproach");
