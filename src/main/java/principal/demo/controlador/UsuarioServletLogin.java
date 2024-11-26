@@ -77,8 +77,8 @@ public class UsuarioServletLogin extends HttpServlet {
             request.getSession().setAttribute("name", usuario.getNombre());
             request.getSession().setAttribute("email", usuario.getEmail());
 
-            // TODO necesitare el id del Usuario para poder ver si es Astronomo
-            request.getSession().setAttribute("idUsuario", usuario.getId());
+            // TODO necesitare el Rol del Usuario para poder ver si es Astronomo
+            request.getSession().setAttribute("UsuarioRol", usuario.getRol().toString());
 
 
             // Redirigimos al listado de Asteroides

@@ -9,9 +9,9 @@
 <body>
 
 <%
+    String rolUsuario = (String) request.getSession().getAttribute("UsuarioRol");
     String name = (String) request.getSession().getAttribute("name");
     String email = (String) request.getSession().getAttribute("email");
-
 
     if (name != null) {
 %>
@@ -44,17 +44,26 @@
     <h1>Estoy en asteroide-record!!</h1>
     <br>
     <a href="/nasa">Regresar al index</a>
-    <br>
-    <a href="crear?accion=crearAsteroide">Añadir Asteroide</a>
-    <br>
+
     <br>
 
     <a href="crear?accion=ApiNasa">Añadir Asteroide Desde la Api</a>
     <br>
     <br>
+    <%
 
+
+        if ("ASTRONOMO".equals(rolUsuario)) {
+    %>
+    <br>
+    <a href="crear?accion=crearAsteroide">Añadir Asteroide</a>
+    <br>
+    <br>
     <a href="eliminar?accion=eliminarTodo">Eliminar Todos Los Asteroide</a>
     <br>
+    <%
+        }
+    %>
     <br>
     <table border="1">
         <thead>
@@ -85,11 +94,23 @@
             <td><%= asteroide.isEsPeligroso() %>
             </td>
             <td>
-                <%--            TODO falta hacer la parte de editar--%>
+
+
+                <%
+
+
+                    if ("ASTRONOMO".equals(rolUsuario)) {
+                %>
+                <%--            TODO falta que solo se pueda ver este boton si eres Astronomo--%>
                 <a href="editar?accion=editarAsteroide&id=<%= asteroide.getId() %>">Editar</a>
 
                 <a href="eliminar?id=<%= asteroide.getId() %>">Remove</a>
-                <a href="litarTodasAsteroides?accion=verAproach&idAsteroide=<%= asteroide.getId() %>">Ver Avistamiento</a>
+                <%
+                    }
+                %>
+
+                <a href="litarTodasAsteroides?accion=verAproach&idAsteroide=<%= asteroide.getId() %>">Ver
+                    Avistamiento</a>
             </td>
         </tr>
         <%

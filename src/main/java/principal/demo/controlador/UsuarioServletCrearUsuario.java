@@ -73,6 +73,7 @@ public class UsuarioServletCrearUsuario extends HttpServlet {
 
             request.getSession().setAttribute("email", email);
             request.getSession().setAttribute("name", usuario.getNombre());
+            request.getSession().setAttribute("UsuarioRol", usuario.getRol().toString());
 
 
             response.sendRedirect("litarTodasAsteroides"); // Redirige al listado de Peliculas

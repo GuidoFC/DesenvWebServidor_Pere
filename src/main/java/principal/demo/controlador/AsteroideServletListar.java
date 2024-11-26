@@ -40,10 +40,10 @@ public class AsteroideServletListar extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("accion");
-        System.out.println("Estoy en AsteroideSerlet Listar doGet");
+
 
         if ("verAproach".equals(action)){
-            System.out.println("Wow 1");
+
             Long id = Long.parseLong(request.getParameter("idAsteroide"));
             System.out.println("Obtener Asteroide con id " + id);
 

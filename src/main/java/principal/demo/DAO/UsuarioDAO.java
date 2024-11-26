@@ -1,6 +1,7 @@
 package principal.demo.DAO;
 
 import principal.demo.Config.Conexion;
+import principal.demo.model.Rol;
 import principal.demo.model.Usuario;
 
 import java.sql.Connection;
@@ -110,6 +111,8 @@ public class UsuarioDAO {
                 usuario.setNombre(rs.getString("nombre"));
                 usuario.setEmail(rs.getString("email"));
                 usuario.setContrasena(rs.getString("contrasena")); // La contraseña ya está cifrada en la BD
+                usuario.setRol(Rol.AsignarRol(rs.getString("rol")));
+
             }
         } catch (Exception e) {
             e.printStackTrace();
