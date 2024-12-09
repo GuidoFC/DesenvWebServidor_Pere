@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
-import principal.demo.DAO.AsteroideDAOAntiguo;
+import principal.demo.DAO.JDBC.AsteroideDAOAntiguo;
 import principal.demo.DAO.AsteroideDaoImpl;
 import principal.demo.model.Asteroide;
 import principal.demo.service.AsteroideService;

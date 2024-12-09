@@ -6,7 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import principal.demo.DAO.AsteroideDAOAntiguo;
+import principal.demo.DAO.JDBC.AsteroideDAOAntiguo;
 import principal.demo.model.Aproach;
 import principal.demo.model.Asteroide;
 import principal.demo.service.AproachService;

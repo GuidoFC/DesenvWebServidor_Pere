@@ -6,14 +6,13 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import principal.demo.DAO.AsteroideDAOAntiguo;
+import principal.demo.DAO.JDBC.AsteroideDAOAntiguo;
 import principal.demo.model.Asteroide;
 import principal.demo.service.AsteroideService;
 
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
 //Esta es una anotación para decirle a Java que esta clase será un "Servlet".
 // Un servlet es básicamente una pequeña aplicación que responde a solicitudes en la web.

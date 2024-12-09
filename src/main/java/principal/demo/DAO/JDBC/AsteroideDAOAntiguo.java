@@ -1,6 +1,7 @@
-package principal.demo.DAO;
+package principal.demo.DAO.JDBC;
 
 import principal.demo.Config.Conexion;
+import principal.demo.DAO.AsteroideDAO;
 import principal.demo.model.Asteroide;
 
 import java.sql.Connection;
@@ -13,7 +14,7 @@ import java.util.List;
 //MovieDAO en tu aplicación se encarga de todas las operaciones relacionadas con la base de datos para las películas.
 //Gracias a MovieDAO, otras partes de la aplicación pueden interactuar con los datos de las películas sin preocuparse de los detalles técnicos de la base de datos
 
-public class AsteroideDAOAntiguo implements AsteroideDAO{
+public class AsteroideDAOAntiguo implements AsteroideDAO {
     // realizar la conexion con la BD
     Conexion cn = new Conexion();
     Connection con;

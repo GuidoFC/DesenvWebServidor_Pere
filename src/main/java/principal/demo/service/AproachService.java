@@ -1,9 +1,7 @@
 package principal.demo.service;
 
-import principal.demo.DAO.AproachDAOAntiguo;
-import principal.demo.DAO.AsteroideDAO;
+import principal.demo.DAO.JDBC.AproachDAOAntiguo;
 import principal.demo.model.Aproach;
-import principal.demo.model.Asteroide;
 
 import java.util.List;
 
